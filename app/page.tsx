@@ -48,7 +48,7 @@ export default function HomePage() {
         setMessage(result.message || 'An error occurred.');
         setMessageType('error');
       }
-    } catch (error) {
+    } catch (_error) {
       setMessage('Failed to connect to the server. Please try again.');
       setMessageType('error');
     } finally {
