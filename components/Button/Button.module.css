@@ -1,0 +1,58 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* From layout_29HZUV */
+  padding: 12px 16px; /* From layout_29HZUV */
+  border-radius: var(--border-radius-main); /* 16px */
+  font-family: var(--font-primary);
+  font-size: 20px; /* From style_2UPILM */
+  font-weight: 400; /* Matching style_2UPILM */
+  line-height: 1.2; /* From style_2UPILM */
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  border: 1px solid transparent; /* Base border */
+}
+
+/* Variant: Primary (default) */
+.primary {
+  background-color: var(--color-button-bg); /* #E6E6E6 */
+  color: var(--color-text-button); /* #1E1E1E */
+  border-color: var(--color-button-border); /* #767676 */
+}
+
+.primary:hover {
+  /* Add hover styles if any - Figma doesn't specify, so can make subtle */
+  background-color: #dcdcdc; 
+  border-color: #6c6c6c;
+}
+
+/* Variant: Neutral (example, if needed from Figma component '544:22578') */
+/* .neutral { ... } */
+
+/* Size: Medium (default) */
+.medium {
+  /* Specific medium size styles if different from base padding/font-size */
+  /* For now, base styles match the 'Medium' button in Figma */
+  min-height: 64px; /* From Figma instance 544:23004 height */
+}
+
+/* Other sizes if needed */
+/* .small { ... } */
+/* .large { ... } */
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconWrapper svg {
+  width: 16px; /* From Arrow right instance 544:22689 */
+  height: 16px; /* From Arrow right instance 544:22689 */
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

@@ -1,0 +1,49 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* From layout_DBB1M6 */
+  padding: 6px 8px 6px 8px; /* Adjusted left padding to 8px to match Figma's 6px 16px 6px 8px where 8px is likely for icon side */
+  /* Figma padding: 6px 16px 6px 8px. If icon is on left, left padding is 8px, right is 16px. */
+  /* Let's assume icon is on the left. So padding-left: 8px, padding-right: 16px. */
+  /* If text only, padding could be symmetrical. For now, let's use the specific padding. */
+  /* The Figma node 'state-layer' (544:22994) has padding: 6px 16px 6px 8px. */
+  /* This implies: top 6, right 16, bottom 6, left 8. */
+  padding-top: 6px;
+  padding-right: 10px; /* Reduced from 16px based on user feedback */
+  padding-bottom: 6px;
+  padding-left: 8px;
+
+  height: 32px; /* From layout_77NW94 */
+  border-radius: var(--border-radius-chip); /* 8px */
+  
+  background: linear-gradient(to right, var(--color-chip-bg-gradient-start), var(--color-chip-bg-gradient-end)); /* #141414 to #070707 */
+  border: 1px solid var(--color-chip-border); /* #5C5A5A */
+  
+  box-sizing: border-box;
+}
+
+.iconWrapper {
+  display: flex; /* Reverted from inline-flex */
+  align-items: center;
+  justify-content: center;
+  width: 15px; 
+  height: 15px; 
+  /* flex-shrink: 0; Reverted - not strictly needed with fixed size */
+}
+
+.iconWrapper svg { /* Reverted to original selector, assuming direct SVG or next/image handles it */
+  width: 100%;
+  height: 100%;
+  stroke: var(--color-icon-light); /* #FFFFFF */
+}
+
+.text {
+  font-family: var(--font-primary);
+  font-weight: 500; /* From style_HSDMXI */
+  font-size: 14px; /* From style_HSDMXI */
+  line-height: 1.4285714285714286; /* Approx 20px. From style_HSDMXI */
+  letter-spacing: 0.007142857em; /* From style_HSDMXI, approx 0.1px */
+  color: var(--color-text-chip); /* #F5F5F5 */
+  white-space: nowrap; /* Prevent text wrapping */
+}

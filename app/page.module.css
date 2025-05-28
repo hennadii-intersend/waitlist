@@ -1,168 +1,326 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
-}
-
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
-}
-
 .main {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-background);
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
+/* Decorative rectangles removed as per new Figma data */
+
+.holoDiamond {
+  position: absolute;
+  width: 150px;
+  height: 154px;
+  z-index: 0;
 }
 
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
+/* Adjusted diamond positions to be visible within a typical viewport,
+   mirroring the user's reference screenshot where all four are visible.
+   Original Figma coordinates are for a 1728px wide artboard.
+   diamond4 (top-left) and diamond3 (bottom-left) were already fairly visible.
+   diamond1 (top-right) and diamond2 (bottom-right) are adjusted here.
+*/
+.diamond1 { /* Was top-right: left: 1327px; top: 502px; */
+  right: 224px; /* Mirrored from diamond4's left */
+  top: 213px;   /* Mirrored from diamond4's top */
 }
-
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
+.diamond2 { /* Was bottom-right: left: 1461px; top: 849px; */
+  right: 108px; /* Mirrored from diamond3's left */
+  top: 642px;   /* Mirrored from diamond3's top */
 }
+.diamond3 { left: 108px; top: 642px; } /* Original, visible */
+.diamond4 { left: 224px; top: 213px; } /* Original, visible */
 
-.ctas {
+.contentWrapper { /* Frame 3 (544:22990) */
+  position: relative;
+  z-index: 1;
   display: flex;
-  gap: 16px;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 0px;
+  gap: 40px;
+  width: 925px;
+  margin-top: 273px; /* Updated y-coordinate of Frame 3 (node 544:23254) */
+  margin-bottom: auto;
+  padding-left: 20px; 
+  padding-right: 20px;
+  box-sizing: border-box;
 }
 
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
+.chipOuterContainer { /* Frame 4 (544:22991) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Aligns with 'center' in Figma */
+  gap: 20px; 
+  padding: 5px 21px; 
+  width: 100%; 
+  max-width: 326px; 
+}
+
+.textContainer { /* Frame 5 (544:22998) */
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  align-self: stretch; 
+  gap: 10px;
+  padding: 0px 10px;
+  text-align: center; 
+}
+
+.mainHeading { /* Text 544:22999 */
+  font-family: var(--font-primary);
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 1.1; 
+  text-align: center;
+  background: linear-gradient(to bottom, var(--color-text-primary-gradient-start), var(--color-text-primary-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  white-space: pre-line; 
+}
+
+.paragraph { /* Text 544:23000 */
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.21; 
+  color: var(--color-text-secondary);
+  text-align: center;
+  max-width: 850px; /* Increased from 781px to give more space for the second line */
+  white-space: pre-line; 
+}
+
+.formContainerOuter { /* Frame 6 (544:23001) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Gap between form elements and message */
+  padding: 0px; 
+  width: 100%; 
+  max-width: 722px; 
+}
+
+.formContainerInner { /* Frame 1 (544:23002) within Frame 6 */
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 617px; 
+}
+
+.inputWrapper { /* For sizing the input field within the form */
+  width: 100%; 
+  max-width: 424px; 
+  flex-grow: 1; 
+}
+
+.message {
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+  max-width: 617px; /* Align with form inner container */
+}
+
+.successMessage {
+  color: #4CAF50; /* Green for success */
+}
+
+.errorMessage {
+  color: #F44336; /* Red for error */
+}
+
+.footerWrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-bottom: 27px; 
+  margin-top: auto; 
+  display: flex;
+  justify-content: center; 
+}
+
+.footerContent { /* Frame 2 (544:23008) */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 7px 9px;
+}
+
+.footerText { /* Text © 2025 Interspace (544:23016) */
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1; 
+  color: var(--color-text-footer);
+}
+
+.socialIconsContainer { /* Frame 8 (544:23017) */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-left: 20px; 
+  border-left: 1px solid var(--color-icon-light); 
+}
+
+.socialIcon { /* For lucide/twitter and lucide/linkedin frames */
+  width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
+.socialIcon img { /* If using <img> for SVGs */
+  width: 100%;
+  height: 100%;
 }
 
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
-}
-
-.footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
-}
-
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer img {
-  flex-shrink: 0;
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
+/* Media Query for Mobile Responsiveness */
+@media (max-width: 768px) {
   .main {
-    align-items: center;
+    overflow-x: hidden; 
   }
 
-  .main ol {
+  .contentWrapper {
+    width: 90%;
+    margin-top: 15vh; 
+    padding: 20px 0;
+    gap: 25px; 
+  }
+
+  .chipOuterContainer {
+    width: auto; 
+    padding: 5px 0;
+  }
+
+  .mainHeading {
+    font-size: clamp(28px, 8vw, 48px); 
+    line-height: 1.2;
+  }
+
+  .paragraph {
+    font-size: clamp(14px, 4vw, 18px); 
+    line-height: 1.4;
+    max-width: 100%;
+  }
+
+  .formContainerOuter {
+    width: 90%; 
+    padding: 0; 
+    max-width: 500px; 
+  }
+  
+  .formContainerInner {
+    flex-direction: column; 
+    width: 100%;
+    gap: 15px;
+  }
+
+  .inputWrapper {
+    width: 100%;
+    max-width: none; 
+  }
+  
+  .inputWrapper input, .formContainerInner button { 
+    width: 100%; 
+  }
+
+  .message {
+    font-size: 13px;
+  }
+
+  .diamond1 { 
+    right: 6vw; 
+    top: 12vh; 
+    width: 100px; 
+    height: 103px; 
+  }
+  .diamond2 { 
+    right: 4vw; 
+    bottom: 15vh; top:auto; 
+    width: 100px; 
+    height: 103px; 
+  }
+  .diamond3 { 
+    left: 7vw; 
+    bottom: 10vh; top:auto;
+    width: 100px; 
+    height: 103px; 
+  }
+  .diamond4 { 
+    left: 4vw; 
+    top: 8vh; 
+    width: 100px; 
+    height: 103px; 
+  }
+
+  .footerContent {
+    flex-direction: column;
+    gap: 15px;
     text-align: center;
   }
-
-  .ctas {
-    flex-direction: column;
+  .socialIconsContainer {
+    border-left: none; 
+    padding-left: 0;
+    order: 1; 
   }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  .footerText {
+    order: 2; 
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
+@media (max-width: 480px) {
+  .contentWrapper {
+    margin-top: 10vh; 
+    gap: 20px;
+    padding-left: 15px; 
+    padding-right: 15px;
+  }
+  .mainHeading {
+    font-size: clamp(30px, 8vw, 40px); 
+  }
+  .paragraph {
+    font-size: clamp(14px, 4vw, 16px); 
+  }
+  .diamond1 { 
+    right: 20px; 
+    top: 40px; 
+    width: 70px; 
+    height: 72px; 
+  }
+  .diamond2 { 
+    right: 10px; 
+    bottom: 60px; top: auto; 
+    width: 70px; 
+    height: 72px; 
+  }
+  .diamond3 { 
+    left: 25px;  
+    bottom: 90px; top: auto; 
+    width: 70px; 
+    height: 72px; 
+  }
+  .diamond4 { 
+    left: 10px; 
+    top: 70px; 
+    width: 70px; 
+    height: 72px; 
+  }
+  .message {
+    font-size: 12px;
   }
 }

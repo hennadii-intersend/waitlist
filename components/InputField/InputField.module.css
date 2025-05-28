@@ -1,0 +1,47 @@
+.inputFieldContainer {
+  width: 100%; /* Or specific width from Figma if fixed, e.g., 424px for instance 544:23003 */
+}
+
+.input {
+  width: 100%;
+  padding: 12px 16px; /* From I544:23003;565:14989 layout */
+  background-color: var(--color-input-bg); /* #303030 */
+  border: 1px solid var(--color-input-border); /* #444444 */
+  border-radius: var(--border-radius-main); /* 16px */
+  
+  font-family: var(--font-primary);
+  font-size: 20px; /* From style_NOI4VQ */
+  font-weight: 400; /* From style_NOI4VQ */
+  line-height: 1.2; /* From style_NOI4VQ */
+  color: var(--color-text-primary-gradient-start); /* Changed to white for typed text */
+  
+  min-height: 64px; /* From Figma instance 544:23003 height */
+  box-sizing: border-box;
+  outline: none; /* Remove default focus outline if custom is not added */
+}
+
+.input::placeholder {
+  color: var(--color-text-secondary); /* #848484 for placeholder */
+  opacity: 1; /* Ensure placeholder is fully visible */
+}
+
+.input:focus {
+  border-color: var(--color-text-primary-gradient-end); /* Example focus: use a light gray like #ADADAD */
+  /* Add other focus styles if needed, e.g., subtle box-shadow */
+}
+
+.input:disabled {
+  background-color: #2a2a2a; /* Slightly different bg for disabled state */
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Styles for label, description, error states can be added later if needed */
+/*
+.label { ... }
+.description { ... }
+.errorMessage { ... }
+.errorState .input {
+  border-color: red; // Example error border
+}
+*/
