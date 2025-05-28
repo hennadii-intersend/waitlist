@@ -8,7 +8,7 @@ import InputField from '../components/InputField/InputField';
 import Button from '../components/Button/Button';
 
 export default function HomePage() {
-  const flameIcon = <Image src="/images/lucide-flame.svg" alt="Flame Icon" width={15} height={15} />;
+  const mobileIcon = <Image src="/images/mobile-outline.svg" alt="Mobile Icon" width={24} height={24} />;
   const arrowRightIcon = <Image src="/images/arrow-right.svg" alt="Arrow Right" width={16} height={16} />;
 
   const [email, setEmail] = useState('');
@@ -69,7 +69,7 @@ export default function HomePage() {
       <div className={styles.contentWrapper}> {/* Corresponds to Frame 3 (node 544:23254) */}
         
         <div className={styles.chipOuterContainer}> {/* Corresponds to Frame 4 (node 544:23255) */}
-          <Chip icon={flameIcon} text="Coming Soon to Mobile" />
+          <Chip icon={mobileIcon} text="Coming Soon to Mobile" />
         </div>
 
         <div className={styles.textContainer}> {/* Corresponds to Frame 5 (node 544:23262) */}

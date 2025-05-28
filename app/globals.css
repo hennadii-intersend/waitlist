@@ -29,7 +29,9 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--color-background);
+  background-color: var(--color-background); /* Fallback and base for dots */
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px); /* Subtle white dots */
+  background-size: 15px 15px; /* Spacing of the dots */
   color: var(--color-text-secondary); /* Default text color */
   font-family: var(--font-primary);
   overflow-x: hidden; /* Prevent horizontal scroll from decorative elements */

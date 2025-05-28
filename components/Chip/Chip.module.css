@@ -27,8 +27,8 @@
   display: flex; /* Reverted from inline-flex */
   align-items: center;
   justify-content: center;
-  width: 15px; 
-  height: 15px; 
+  width: 24px; 
+  height: 24px; 
   /* flex-shrink: 0; Reverted - not strictly needed with fixed size */
 }
 
