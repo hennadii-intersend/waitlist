@@ -77,7 +77,7 @@ export default function HomePage() {
             {"Thank You For \nExperimenting With Us"}
           </h1>
           <p className={styles.paragraph}>
-            {"Based on your feedback we’re launching mobile-first crypto wallet. Organize onchain activities and elevate productivity like never before."}
+            {"Thanks to your insights, we're launching our mobile-first wallet for everyday crypto utility.\nMaster your onchain activities and manage assets more effectively than ever before."}
           </p>
         </div>
 
