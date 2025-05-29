@@ -24,16 +24,22 @@
    diamond4 (top-left) and diamond3 (bottom-left) were already fairly visible.
    diamond1 (top-right) and diamond2 (bottom-right) are adjusted here.
 */
-.diamond1 { /* Was top-right: left: 1327px; top: 502px; */
-  right: 224px; /* Mirrored from diamond4's left */
-  top: 213px;   /* Mirrored from diamond4's top */
+.diamond1 { /* Top-right, moved further up and right */
+  right: 5vw; 
+  top: 5vh;   
 }
-.diamond2 { /* Was bottom-right: left: 1461px; top: 849px; */
-  right: 108px; /* Mirrored from diamond3's left */
-  top: 642px;   /* Mirrored from diamond3's top */
+.diamond2 { /* Bottom-right, was left: 1461px; top: 849px; on 1728px artboard */
+  right: 15vw; 
+  top: 79vh;   
 }
-.diamond3 { left: 108px; top: 642px; } /* Original, visible */
-.diamond4 { left: 224px; top: 213px; } /* Original, visible */
+.diamond3 { /* Bottom-left, was left: 108px; top: 642px; */
+  left: 6vw; 
+  top: 59vh; 
+}
+.diamond4 { /* Top-left, was left: 224px; top: 213px; */
+  left: 13vw; 
+  top: 20vh; 
+}
 
 .contentWrapper { /* Frame 3 (544:22990) */
   position: relative;
