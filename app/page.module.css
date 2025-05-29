@@ -46,6 +46,8 @@
   width: 925px;
   margin-top: 273px; /* Updated y-coordinate of Frame 3 (node 544:23254) */
   margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 20px; 
   padding-right: 20px;
   box-sizing: border-box;
