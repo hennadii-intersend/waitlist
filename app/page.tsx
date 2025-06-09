@@ -74,10 +74,10 @@ export default function HomePage() {
 
         <div className={styles.textContainer}> {/* Corresponds to Frame 5 (node 544:23262) */}
           <h1 className={styles.mainHeading}>
-            {"Thank You For \nExperimenting With Us"}
+            {"Thank You For Insights \nAnd Experimenting With Us"}
           </h1>
           <p className={styles.paragraph}>
-            {"Thanks to your insights, we're launching our mobile-first wallet for everyday crypto utility.\nMaster your onchain activities and manage assets more effectively than ever before."}
+            {"Buckle up for our mobile crypto wallet for daily onchain activities.\nBuilt for pros, simple for normies."}
           </p>
         </div>
 
@@ -108,6 +108,9 @@ export default function HomePage() {
         <div className={styles.footerContent}> {/* Corresponds to Frame 2 (544:23008) */}
           <span className={styles.footerText}>© 2025 Interspace</span>
           <div className={styles.socialIconsContainer}> {/* Corresponds to Frame 8 (544:23017) */}
+            <a href="https://t.me/interspace_announcements" target="_blank" rel="noopener noreferrer" aria-label="Telegram" className={styles.socialIcon}>
+              <Image src="/images/lucide-send.svg" alt="Telegram" width={18} height={18} />
+            </a>
             <a href="https://x.com/interspace_fi" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className={styles.socialIcon}>
               <Image src="/images/lucide-twitter.svg" alt="Twitter" width={20} height={20} />
             </a>
