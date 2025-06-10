@@ -74,10 +74,10 @@ export default function HomePage() {
 
         <div className={styles.textContainer}> {/* Corresponds to Frame 5 (node 544:23262) */}
           <h1 className={styles.mainHeading}>
-            {"Thank You For Your Insights"}
+            {"Try Our New Wallet"}
           </h1>
           <p className={styles.paragraph}>
-            {"Sign up below for our mobile crypto wallet for daily onchain activities.\nBuilt for pros, simple for normies."}
+            {"Manage accounts, apps, and assets - all from your fingertips."}
           </p>
         </div>
 
