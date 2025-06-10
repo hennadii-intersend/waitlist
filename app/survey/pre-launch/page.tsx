@@ -39,8 +39,7 @@ export default function PreLaunchSurveyPage() {
   // Optional Feedback
   const [wishlistFeature, setWishlistFeature] = useState('');
   const [betaInterest, setBetaInterest] = useState('');
-
-
+  // Adding a comment to trigger a new commit
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState<'success' | 'error' | ''>('');
