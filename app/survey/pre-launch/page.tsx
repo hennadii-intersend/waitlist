@@ -197,6 +197,7 @@ export default function PreLaunchSurveyPage() {
             <section className={styles.section}>
             <h2 className={styles.sectionTitle}>Pain Points & Usage</h2>
             <div className={styles.formGroup}>
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
               <label>7. How much do you agree with: "Managing multiple crypto accounts and transactions is difficult"?</label>
               <div className={styles.radioGroup}>
                 {agreementOptions.map(option => (<label key={option}><input type="radio" name="agreementManageAccounts" value={option} checked={agreementManageAccounts === option} onChange={(e) => setAgreementManageAccounts(e.target.value)} disabled={isLoading}/>{option}</label>))}
@@ -267,6 +268,7 @@ export default function PreLaunchSurveyPage() {
             <section className={styles.section}>
             <h2 className={styles.sectionTitle}>Optional Feedback</h2>
             <div className={styles.formGroup}>
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
               <label htmlFor="wishlistFeature">13. What's one feature you wish every crypto wallet had?</label>
               <textarea id="wishlistFeature" value={wishlistFeature} onChange={(e) => setWishlistFeature(e.target.value)} disabled={isLoading}></textarea>
             </div>
