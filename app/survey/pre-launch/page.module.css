@@ -138,8 +138,9 @@
 .checkboxGroup input[type="checkbox"] {
   margin-right: 0.75rem;
   accent-color: var(--color-primary-accent, #007bff);
-  width: 1em; /* Consistent sizing */
-  height: 1em;
+  width: 1.3em; /* Increased size */
+  height: 1.3em; /* Increased size */
+  vertical-align: middle; /* Align better with text */
 }
 
 .otherSpecifyInput {

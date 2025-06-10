@@ -21,20 +21,10 @@ export default function PreLaunchSurveyPage() {
   const [managedWalletsCount, setManagedWalletsCount] = useState('');
 
   // Pain Points & Usage
-  const [agreementManageAccounts, setAgreementManageAccounts] = useState('');
-  const [biggestFrustrations, setBiggestFrustrations] = useState<string[]>([]);
-  const [biggestFrustrationsOther, setBiggestFrustrationsOther] = useState('');
   const [regularApps, setRegularApps] = useState<string[]>([]);
   const [regularAppsOther, setRegularAppsOther] = useState('');
   const [manageAppAccess, setManageAppAccess] = useState('');
   const [manageAppAccessOther, setManageAppAccessOther] = useState('');
-
-  // Feature Interest
-  const [featureRank1, setFeatureRank1] = useState('');
-  const [featureRank2, setFeatureRank2] = useState('');
-  const [featureRank3, setFeatureRank3] = useState('');
-  const [featureSuggestOther, setFeatureSuggestOther] = useState('');
-  const [automatedTransactionFrequency, setAutomatedTransactionFrequency] = useState('');
 
   // Optional Feedback
   const [wishlistFeature, setWishlistFeature] = useState('');
@@ -73,21 +63,10 @@ export default function PreLaunchSurveyPage() {
         ? [...currentWallets.filter(w => w !== 'Other'), `Other: ${currentWalletsOther}`] 
         : currentWallets,
       managedWalletsCount,
-      agreementManageAccounts,
-      biggestFrustrations: biggestFrustrations.includes('Other')
-        ? [...biggestFrustrations.filter(f => f !== 'Other'), `Other: ${biggestFrustrationsOther}`]
-        : biggestFrustrations,
       regularApps: regularApps.includes('Other')
         ? [...regularApps.filter(a => a !== 'Other'), `Other: ${regularAppsOther}`]
         : regularApps,
       manageAppAccess: manageAppAccess === 'Other' ? manageAppAccessOther : manageAppAccess,
-      featureRanking: {
-        rank1: featureRank1,
-        rank2: featureRank2,
-        rank3: featureRank3,
-        suggestOther: featureSuggestOther,
-      },
-      automatedTransactionFrequency,
       wishlistFeature,
       betaInterest,
     };
@@ -124,17 +103,9 @@ export default function PreLaunchSurveyPage() {
   const cryptoExperienceOptions = ["Less than 6 months", "6 months - 1 year", "1-3 years", "3+ years"];
   const walletOptions = ["MetaMask", "Rabby", "Phantom", "Rainbow", "Trust Wallet", "Zerion", "Frame", "OKX Wallet", "Safe (Gnosis Safe)", "Coinbase Wallet", "Ledger Live", "Other"];
   const managedWalletsCountOptions = ["1-2", "3-5", "6-10", "More than 10"];
-  const agreementOptions = ["Strongly agree", "Agree", "Neutral", "Disagree", "Strongly disagree"];
-  const frustrationOptions = ["Managing multiple accounts", "Transaction approval process", "Switching between different apps", "Security concerns", "Gas fee management", "Understanding transaction details", "Tracking portfolio across chains", "Other"];
   const appOptions = ["Aave", "Uniswap", "OpenSea", "Blur", "Compound", "Hyperliquid", "DeFiLlama Swap", "Jumper Exchange", "Beefy Finance", "GMX", "dYdX", "Other"];
   const manageAccessOptions = ["Browser bookmarks", "Wallet app integrations", "Manually type URLs", "Search each time", "Other"];
-  const featureOptions = ["Smart profiles for automated approvals", "Unified view of all accounts", "Browser and mobile accessibility", "Automated transactions", "App organization/quick access"];
-  const automatedFrequencyOptions = ["Daily", "Weekly", "Monthly", "Rarely", "Never"];
   const betaInterestOptions = ["Yes, I'm very interested", "Maybe, depends on time commitment", "No, I'll wait for full release"];
-
-  const getFilteredFeatureOptions = (exclude1?: string, exclude2?: string) => {
-    return featureOptions.filter(opt => opt !== exclude1 && opt !== exclude2);
-  };
 
   return (
     <main className={styles.main}> {/* Use main page's .main style */}
@@ -161,7 +132,7 @@ export default function PreLaunchSurveyPage() {
                 <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} disabled={isLoading}/>
                 </div>
                 <div className={styles.formGroup}>
-                <label>3. How did you find out about Interspace?</label>
+                <label>3. How did you find out about Interspace? (optional)</label>
                 <div className={styles.radioGroup}>
                     {howFoundOptions.map(option => (<label key={option}><input type="radio" name="howFound" value={option} checked={howFound === option} onChange={(e) => setHowFound(e.target.value)} disabled={isLoading}/>{option}</label>))}
                 </div>
@@ -196,20 +167,7 @@ export default function PreLaunchSurveyPage() {
             {/* Pain Points & Usage */}
             <section className={styles.section}>
             <h2 className={styles.sectionTitle}>Pain Points & Usage</h2>
-            <div className={styles.formGroup}>
-              {/* eslint-disable-next-line react/no-unescaped-entities */}
-              <label>7. How much do you agree with: "Managing multiple crypto accounts and transactions is difficult"?</label>
-              <div className={styles.radioGroup}>
-                {agreementOptions.map(option => (<label key={option}><input type="radio" name="agreementManageAccounts" value={option} checked={agreementManageAccounts === option} onChange={(e) => setAgreementManageAccounts(e.target.value)} disabled={isLoading}/>{option}</label>))}
-              </div>
-            </div>
-            <div className={styles.formGroup}>
-              <label>8. What are your biggest frustrations with current crypto wallets? (Select up to 3)</label>
-              <div className={styles.checkboxGroup}>
-                {frustrationOptions.map(option => (<label key={option}><input type="checkbox" value={option} checked={biggestFrustrations.includes(option)} onChange={(e) => { const { checked } = e.target; if (checked && biggestFrustrations.length >= 3 && !biggestFrustrations.includes(option)) { return; } handleCheckboxChange(e, setBiggestFrustrations); }} disabled={isLoading || (biggestFrustrations.length >= 3 && !biggestFrustrations.includes(option))}/>{option}</label>))}
-              </div>
-              {biggestFrustrations.includes('Other') && (<input type="text" className={styles.otherSpecifyInput} placeholder="Please specify other frustration(s)" value={biggestFrustrationsOther} onChange={(e) => setBiggestFrustrationsOther(e.target.value)} disabled={isLoading}/>)}
-            </div>
+            {/* Question 7 & 8 removed as per request */}
             <div className={styles.formGroup}>
               <label>9. Which DeFi/Web3 apps do you use regularly? (Select all that apply)</label>
               <div className={styles.checkboxGroup}>
@@ -226,54 +184,18 @@ export default function PreLaunchSurveyPage() {
                 </div>
             </section>
 
-            {/* Feature Interest */}
-            <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>Feature Interest</h2>
-            <div className={styles.formGroup}>
-              <label>11. Which Interspace features sound most valuable to you? (Rank top 3)</label>
-              <div className={styles.rankSelectGroup}>
-                <label htmlFor="featureRank1">Rank 1:</label>
-                    <select id="featureRank1" value={featureRank1} onChange={(e) => setFeatureRank1(e.target.value)} disabled={isLoading}>
-                    <option value="">Select feature...</option>
-                    {getFilteredFeatureOptions(featureRank2, featureRank3).map(opt => <option key={`rank1-${opt}`} value={opt}>{opt}</option>)}
-                    </select>
-                </div>
-                <div className={styles.rankSelectGroup}>
-                    <label htmlFor="featureRank2">Rank 2:</label>
-                    <select id="featureRank2" value={featureRank2} onChange={(e) => setFeatureRank2(e.target.value)} disabled={isLoading || !featureRank1}>
-                    <option value="">Select feature...</option>
-                    {getFilteredFeatureOptions(featureRank1, featureRank3).map(opt => <option key={`rank2-${opt}`} value={opt}>{opt}</option>)}
-                    </select>
-                </div>
-                <div className={styles.rankSelectGroup}>
-                    <label htmlFor="featureRank3">Rank 3:</label>
-                    <select id="featureRank3" value={featureRank3} onChange={(e) => setFeatureRank3(e.target.value)} disabled={isLoading || !featureRank2}>
-                    <option value="">Select feature...</option>
-                    {getFilteredFeatureOptions(featureRank1, featureRank2).map(opt => <option key={`rank3-${opt}`} value={opt}>{opt}</option>)}
-                    </select>
-                </div>
-                <label htmlFor="featureSuggestOther" className={styles.otherSpecifyLabel}>Other (please suggest):</label>
-                <input type="text" id="featureSuggestOther" placeholder="Suggest a feature" value={featureSuggestOther} onChange={(e) => setFeatureSuggestOther(e.target.value)} disabled={isLoading}/>
-                </div>
-
-            <div className={styles.formGroup}>
-              <label>12. How often would you use automated transaction features?</label>
-              <div className={styles.radioGroup}>
-                {automatedFrequencyOptions.map(option => (<label key={option}><input type="radio" name="automatedTransactionFrequency" value={option} checked={automatedTransactionFrequency === option} onChange={(e) => setAutomatedTransactionFrequency(e.target.value)} disabled={isLoading}/>{option}</label>))}
-              </div>
-                </div>
-            </section>
+            {/* Feature Interest section removed as per request */}
 
             {/* Optional Feedback */}
             <section className={styles.section}>
             <h2 className={styles.sectionTitle}>Optional Feedback</h2>
             <div className={styles.formGroup}>
               {/* eslint-disable-next-line react/no-unescaped-entities */}
-              <label htmlFor="wishlistFeature">13. What's one feature you wish every crypto wallet had?</label>
+              <label htmlFor="wishlistFeature">13. What's one feature you wish every crypto wallet had? (optional)</label>
               <textarea id="wishlistFeature" value={wishlistFeature} onChange={(e) => setWishlistFeature(e.target.value)} disabled={isLoading}></textarea>
             </div>
             <div className={styles.formGroup}>
-              <label>14. Would you be interested in participating in beta testing and providing feedback?</label>
+              <label>14. Would you be interested in participating in beta testing and providing feedback? (optional)</label>
               <div className={styles.radioGroup}>
                 {betaInterestOptions.map(option => (<label key={option}><input type="radio" name="betaInterest" value={option} checked={betaInterest === option} onChange={(e) => setBetaInterest(e.target.value)} disabled={isLoading}/>{option}</label>))}
               </div>
