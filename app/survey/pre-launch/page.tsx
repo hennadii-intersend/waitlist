@@ -169,14 +169,14 @@ export default function PreLaunchSurveyPage() {
             <h2 className={styles.sectionTitle}>Pain Points & Usage</h2>
             {/* Question 7 & 8 removed as per request */}
             <div className={styles.formGroup}>
-              <label>9. Which DeFi/Web3 apps do you use regularly? (Select all that apply)</label>
+              <label>7. Which DeFi/Web3 apps do you use regularly? (Select all that apply)</label>
               <div className={styles.checkboxGroup}>
                 {appOptions.map(option => (<label key={option}><input type="checkbox" value={option} checked={regularApps.includes(option)} onChange={(e) => handleCheckboxChange(e, setRegularApps)} disabled={isLoading}/>{option}</label>))}
               </div>
               {regularApps.includes('Other') && (<input type="text" className={styles.otherSpecifyInput} placeholder="Please specify other app(s)" value={regularAppsOther} onChange={(e) => setRegularAppsOther(e.target.value)} disabled={isLoading}/>)}
             </div>
             <div className={styles.formGroup}>
-              <label>10. How do you currently manage accessing your frequently used apps?</label>
+              <label>8. How do you currently manage accessing your frequently used apps?</label>
               <div className={styles.radioGroup}>
                 {manageAccessOptions.map(option => (<label key={option}><input type="radio" name="manageAppAccess" value={option} checked={manageAppAccess === option} onChange={(e) => setManageAppAccess(e.target.value)} disabled={isLoading}/>{option}</label>))}
               </div>
@@ -191,11 +191,11 @@ export default function PreLaunchSurveyPage() {
             <h2 className={styles.sectionTitle}>Optional Feedback</h2>
             <div className={styles.formGroup}>
               {/* eslint-disable-next-line react/no-unescaped-entities */}
-              <label htmlFor="wishlistFeature">13. What's one feature you wish every crypto wallet had? (optional)</label>
+              <label htmlFor="wishlistFeature">9. What's one feature you wish every crypto wallet had? (optional)</label>
               <textarea id="wishlistFeature" value={wishlistFeature} onChange={(e) => setWishlistFeature(e.target.value)} disabled={isLoading}></textarea>
             </div>
             <div className={styles.formGroup}>
-              <label>14. Would you be interested in participating in beta testing and providing feedback? (optional)</label>
+              <label>10. Would you be interested in participating in beta testing and providing feedback? (optional)</label>
               <div className={styles.radioGroup}>
                 {betaInterestOptions.map(option => (<label key={option}><input type="radio" name="betaInterest" value={option} checked={betaInterest === option} onChange={(e) => setBetaInterest(e.target.value)} disabled={isLoading}/>{option}</label>))}
               </div>
