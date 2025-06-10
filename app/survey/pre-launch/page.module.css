@@ -1,0 +1,263 @@
+/* Copied and adapted from app/page.module.css for consistent theme */
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden; /* Prevent horizontal scroll with diamonds */
+  /* background-color: var(--color-background); /* Ensure this is set in globals.css */
+}
+
+.holoDiamond {
+  position: absolute;
+  width: 150px;
+  height: 154px;
+  z-index: 0;
+}
+.diamond1 { right: 5vw; top: 5vh; }
+.diamond2 { right: 15vw; top: 79vh; }
+.diamond3 { left: 6vw; top: 59vh; }
+.diamond4 { left: 13vw; top: 20vh; }
+
+.contentWrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 20px; /* Symmetrical padding */
+  gap: 40px;
+  width: 100%; /* Allow it to be responsive */
+  max-width: 925px; /* Max width for content */
+  margin-top: 15vh; /* Adjusted top margin for survey title visibility */
+  margin-bottom: 5vh; /* Space at the bottom */
+  box-sizing: border-box;
+}
+
+/* Survey specific styles, adapted for dark theme */
+.surveyContainer {
+  width: 100%;
+  max-width: 800px; /* Max width for the survey form */
+  background-color: rgba(24, 24, 27, 0.8); /* Darker, slightly transparent background for form */
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-border-primary, #333); /* Use CSS var or fallback */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: var(--color-text-secondary, #ccc); /* Default text color for survey */
+}
+
+.title {
+  font-family: var(--font-primary);
+  font-weight: 800;
+  font-size: 2.5rem; /* Slightly larger for survey title */
+  line-height: 1.2; 
+  text-align: center;
+  background: linear-gradient(to bottom, var(--color-text-primary-gradient-start), var(--color-text-primary-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  white-space: pre-line; 
+  margin-bottom: 2.5rem;
+}
+
+.section {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border-secondary, #444);
+}
+
+.section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.sectionTitle {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-text-primary, #fff);
+  margin-bottom: 1.5rem;
+}
+
+.formGroup {
+  margin-bottom: 1.75rem;
+}
+
+.formGroup label,
+.formGroup legend {
+  display: block;
+  font-size: 1rem; /* Adjusted for better readability */
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  color: var(--color-text-secondary, #ccc);
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="email"],
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  padding: 0.875rem;
+  background-color: var(--color-input-background, #121212);
+  color: var(--color-text-input, #fff);
+  border: 1px solid var(--color-border-input, #555);
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.formGroup input[type="text"]:focus,
+.formGroup input[type="email"]:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  border-color: var(--color-primary-accent, #007bff); /* Use a theme accent color */
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Focus ring */
+  outline: none;
+}
+
+.formGroup textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.radioGroup label,
+.checkboxGroup label {
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary, #ccc);
+  cursor: pointer;
+}
+
+.radioGroup input[type="radio"],
+.checkboxGroup input[type="checkbox"] {
+  margin-right: 0.75rem;
+  accent-color: var(--color-primary-accent, #007bff);
+  width: 1.3em; /* Increased size */
+  height: 1.3em; /* Increased size */
+  vertical-align: middle; /* Align better with text */
+}
+
+.otherSpecifyInput {
+  margin-top: 0.75rem;
+  margin-left: 1.9em; /* Align with checkbox/radio text */
+  width: calc(100% - 1.9em); /* Adjust width */
+}
+.otherSpecifyLabel { /* For the "Other (please suggest)" label in feature ranking */
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+
+.rankSelectGroup {
+    margin-bottom: 0.75rem;
+}
+.rankSelectGroup label {
+    margin-right: 0.5rem;
+    font-weight: normal;
+    font-size: 0.95rem;
+}
+.rankSelectGroup select {
+    padding: 0.5rem; /* Smaller padding for select */
+    margin-bottom: 0.5rem;
+}
+
+
+.submitButton {
+  display: block;
+  width: 100%;
+  padding: 0.875rem;
+  background: linear-gradient(to right, var(--color-button-gradient-start, #007bff), var(--color-button-gradient-end, #0056b3));
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+  margin-top: 2.5rem;
+}
+
+.submitButton:hover {
+  opacity: 0.9;
+}
+
+.submitButton:disabled {
+  background: #555; /* Darker disabled state */
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.message {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.successMessage {
+  background-color: #28a745; /* Green for success */
+  color: #fff;
+  border: 1px solid #1e7e34;
+}
+
+.errorMessage {
+  background-color: #dc3545; /* Red for error */
+  color: #fff;
+  border: 1px solid #bd2130;
+}
+
+/* Responsive adjustments for survey, similar to main page */
+@media (max-width: 768px) {
+  .contentWrapper {
+    margin-top: 10vh;
+    padding: 20px 15px;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+  .holoDiamond { width: 100px; height: 103px; }
+  .diamond1 { right: 6vw; top: 12vh; }
+  .diamond2 { right: 4vw; bottom: 15vh; top:auto; }
+  .diamond3 { left: 7vw; bottom: 10vh; top:auto; }
+  .diamond4 { left: 4vw; top: 8vh; }
+}
+
+@media (max-width: 480px) {
+  .contentWrapper {
+    margin-top: 8vh;
+    padding: 15px 10px;
+  }
+  .title {
+    font-size: 1.75rem;
+  }
+  .sectionTitle {
+    font-size: 1.25rem;
+  }
+  .formGroup label, .formGroup legend {
+    font-size: 0.95rem;
+  }
+  .formGroup input[type="text"],
+  .formGroup input[type="email"],
+  .formGroup select,
+  .formGroup textarea {
+    font-size: 0.95rem;
+    padding: 0.65rem;
+  }
+  .holoDiamond { width: 70px; height: 72px; }
+  .diamond1 { right: 20px; top: 40px; }
+  .diamond2 { right: 10px; bottom: 60px; top: auto; }
+  .diamond3 { left: 25px;  bottom: 90px; top: auto; }
+  .diamond4 { left: 10px; top: 70px; }
+}
